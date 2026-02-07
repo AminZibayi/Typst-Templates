@@ -1,0 +1,12 @@
+[package]
+name = "memphis-typst-template"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Antigravity"]
+license = "MIT"
+description = "A bold, loud, and unapologetically fun Memphis Design style report template."
+categories = ["report", "fun", "retro"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"

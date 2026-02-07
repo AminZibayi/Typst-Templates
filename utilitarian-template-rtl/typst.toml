@@ -1,0 +1,14 @@
+[package]
+name = "utilitarian-template-rtl"
+version = "1.0.0"
+compiler = "0.13.0"
+entrypoint = "lib.typ"
+authors = ["Your Name"]
+license = "MIT"
+description = "RTL variant of the function-first, clean report template. Features grid layout, Vazirmatn/Sahel fonts, and right-to-left layout optimization."
+keywords = ["utilitarian", "minimal", "industrial", "report", "technical", "rtl", "persian"]
+categories = ["report", "layout"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"

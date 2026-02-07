@@ -1,0 +1,14 @@
+[package]
+name = "utilitarian-template"
+version = "1.0.0"
+compiler = "0.13.0"
+entrypoint = "lib.typ"
+authors = ["Your Name"]
+license = "MIT"
+description = "A function-first, clean, and direct report template with military-industrial aesthetics. Features grid layout, monospaced fonts, muted tones, and minimal decoration."
+keywords = ["utilitarian", "minimal", "industrial", "report", "technical"]
+categories = ["report", "layout"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
