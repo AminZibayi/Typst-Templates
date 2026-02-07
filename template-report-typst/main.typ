@@ -13,8 +13,8 @@
 )
 
 #set par(
-  leading: 2em,
-  spacing: 2em,
+  leading: 0.65em,
+  spacing: 1.5em,
   justify: true,
 )
 
@@ -50,17 +50,26 @@
   #line(length: 100%, stroke: 1pt)
 ]
 
-// Theorem environments
-#let definition-counter = counter("definition")
+// Theorem environments - all share the same counter, reset per section
 #let theorem-counter = counter("theorem")
 
+// Reset theorem counter at each section
+#show heading.where(level: 1): it => {
+  theorem-counter.update(0)
+  it
+}
+
 #show figure.where(kind: "definition"): it => {
-  definition-counter.step()
+  theorem-counter.step()
   block(
     width: 100%,
     inset: 8pt,
     [
-      *تعریف #context definition-counter.display()*.
+      *تعریف #context {
+        let h = counter(heading).get().first()
+        let t = theorem-counter.get().first()
+        numbering("1.1", h, t)
+      }*.
       #it.body
     ]
   )
@@ -72,31 +81,43 @@
     width: 100%,
     inset: 8pt,
     [
-      *قضیه #context theorem-counter.display()*.
+      *قضیه #context {
+        let h = counter(heading).get().first()
+        let t = theorem-counter.get().first()
+        numbering("1.1", h, t)
+      }*.
       #it.body
     ]
   )
 }
 
 #show figure.where(kind: "lemma"): it => {
-  definition-counter.step()
+  theorem-counter.step()
   block(
     width: 100%,
     inset: 8pt,
     [
-      *لم #context definition-counter.display()*.
+      *لم #context {
+        let h = counter(heading).get().first()
+        let t = theorem-counter.get().first()
+        numbering("1.1", h, t)
+      }*.
       #it.body
     ]
   )
 }
 
 #show figure.where(kind: "observation"): it => {
-  definition-counter.step()
+  theorem-counter.step()
   block(
     width: 100%,
     inset: 8pt,
     [
-      *مشاهده #context definition-counter.display()*.
+      *مشاهده #context {
+        let h = counter(heading).get().first()
+        let t = theorem-counter.get().first()
+        numbering("1.1", h, t)
+      }*.
       #it.body
     ]
   )
@@ -140,7 +161,6 @@
 }
 
 // Headings
-#set heading(numbering: "1.1")
 #show heading.where(level: 1): it => {
   pagebreak(weak: true)
   text(size: 14pt, weight: "bold")[
