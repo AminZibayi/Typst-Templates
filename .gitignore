@@ -1,0 +1,14 @@
+# Typst binary
+typst-x86_64-unknown-linux-musl/
+
+# Build artifacts
+*.pdf
+*.aux
+*.log
+*.out
+*.toc
+*.bbl
+*.blg
+*.fls
+*.fdb_latexmk
+*.synctex.gz
