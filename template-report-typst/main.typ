@@ -1,5 +1,10 @@
 // Persian RTL Document Template in Typst
 // Converted from LaTeX template-report
+// 
+// To compile with proper fonts:
+//   typst compile --font-path fonts main.typ
+//
+// Or install B Nazanin fonts system-wide
 
 #set document(title: "پوشش دیسک واحد", author: "نام و نام خانوادگی")
 
@@ -72,38 +77,38 @@
 #let theorem-counter = counter("theorem")
 #let observation-counter = counter("observation")
 
-#let definition(body) = locate(loc => {
+#let definition(body) = {
   definition-counter.step()
   block(
     width: 100%,
     inset: (top: 0.5em, bottom: 0.5em),
   )[
-    #text(weight: "bold")[تعریف #definition-counter.at(loc).at(0).]
+    #text(weight: "bold")[تعریف #context definition-counter.display().]
     #body
   ]
-})
+}
 
-#let theorem(body) = locate(loc => {
+#let theorem(body) = {
   theorem-counter.step()
   block(
     width: 100%,
     inset: (top: 0.5em, bottom: 0.5em),
   )[
-    #text(weight: "bold")[قضیه #theorem-counter.at(loc).at(0).]
+    #text(weight: "bold")[قضیه #context theorem-counter.display().]
     #body
   ]
-})
+}
 
-#let observation(body) = locate(loc => {
+#let observation(body) = {
   observation-counter.step()
   block(
     width: 100%,
     inset: (top: 0.5em, bottom: 0.5em),
   )[
-    #text(weight: "bold")[مشاهده #observation-counter.at(loc).at(0).]
+    #text(weight: "bold")[مشاهده #context observation-counter.display().]
     #body
   ]
-})
+}
 
 #let proof(body) = block(
   width: 100%,
