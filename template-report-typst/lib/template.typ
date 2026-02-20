@@ -92,6 +92,19 @@
   show figure.where(kind: table): set figure(supplement: "جدول")
   show figure.where(kind: "algorithm"): set figure(supplement: "الگوریتم")
 
+  // Algorithm format perfectly mimicking LaTeX 'ruled' style
+  show figure.where(kind: "algorithm"): it => {
+    v(0.5em)
+    line(length: 100%, stroke: 1pt)
+    v(0.3em)
+    align(right)[#it.caption]
+    v(0.3em)
+    line(length: 100%, stroke: 0.5pt)
+    it.body
+    line(length: 100%, stroke: 1pt)
+    v(0.5em)
+  }
+
   // Tables: caption BELOW body (matching LaTeX table environment)
   show figure.where(kind: table): it => {
     it.body
@@ -102,7 +115,6 @@
   // Default table style: no strokes (each table adds its own hlines)
   set table(stroke: none, inset: (x: 8pt, y: 4pt))
 
-  // Equation numbering
   // Equation numbering
   set math.equation(numbering: "(1)", supplement: "رابطه")
 

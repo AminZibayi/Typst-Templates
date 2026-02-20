@@ -36,7 +36,6 @@
     caption: caption,
     block(
       width: 100%,
-      stroke: (top: 0.5pt + black, bottom: 0.5pt + black),
       inset: (x: 4pt, y: 6pt),
     )[
       #set text(lang: "en", dir: ltr, font: "Times New Roman", size: 10pt)
